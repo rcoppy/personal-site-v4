@@ -30,97 +30,101 @@ module.exports = (env, options) => {
             minimizer: [new TerserPlugin()]
         },
         plugins: [new MiniCssExtractPlugin(), // '[name].css'), 
-                //   new PurgecssPlugin({
-                //     paths: glob.sync([
-                //         `${path.join(__dirname, 'src')}/**/*`,
-                //         `${path.join(__dirname, 'assets')}/**/*`,
-                //     ], { nodir: true }),
-                //   }),
-                  new HtmlWebpackPlugin({
-                    template: './src/index.pug'
-                  }),
-                ],
+        //   new PurgecssPlugin({
+        //     paths: glob.sync([
+        //         `${path.join(__dirname, 'src')}/**/*`,
+        //         `${path.join(__dirname, 'assets')}/**/*`,
+        //     ], { nodir: true }),
+        //   }),
+        new HtmlWebpackPlugin({
+            template: './src/index.pug'
+        }),
+        ],
         module: {
             rules: [{
-                    test: /\.m?js$/,
-                    exclude: /(node_modules|bower_components)/,
-                    use: {
-                        loader: 'babel-loader',
-                        options: {
-                            presets: ['@babel/preset-env']
-                        }
+                test: /\.m?js$/,
+                exclude: /(node_modules|bower_components)/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['@babel/preset-env']
                     }
-                  },
-                  {
-                    test: /\.(scss)$/,
-                    use: [
-                        /*{
-                                                    loader: 'style-loader', // inject CSS to page
-                                                },  */
-                        {
-                            loader: MiniCssExtractPlugin.loader,
-                            // options: {
-                            //     publicPath: path.resolve(__dirname, 'assets'),
-                            // }
-                        },
-                        {
-                            loader: 'css-loader', // translates CSS into CommonJS modules
-                        },
-                        {
-                            loader: 'postcss-loader', // Run post css actions
-                            options: {
-                                plugins: function () { // post css plugins, can be exported to postcss.config.js
-                                    return [
-                                        require('precss'),
-                                        require('autoprefixer')
-                                    ];
-                                }
-                            }
-                        }, {
-                            loader: 'sass-loader', // compiles Sass to CSS
-                            options: {
-                                implementation: require('sass'),
-                                sassOptions: {
-                                    fiber: false,
-                                },
-                            },
-                        },
-
-                    ]
-                },
-                {
-                    test: /\.(png|svg|jpg|gif|webp)$/,
-                    use: [
-                        'file-loader',
-                    ],
-                },
-                {
-                    test: /\.(woff|woff2|eot|ttf|otf)$/,
-                    use: [{
-                        loader: 'file-loader',
-                        options: {
-                            name: '[name].[ext]',
-                            outputPath: 'fonts/'
-                        }
-                    }],
-                },
-                {
-                    // test: /\.pug$/,
-                    // use: [
-                    //     // html loader gets webpack to process <img> src
-                    //     'html-loader',
-                    //     // requires pretty option otherwise some spacing between elements is lost
-                    //     'pug-html-loader?{"pretty":true,"exports":false}'
-                    //     ],
-                    test: /\.pug$/,
-                    use: [{
-                        
-                        loader: '@webdiscus/pug-loader', 
+                }
+            },
+            {
+                test: /\.(scss)$/,
+                use: [
+                    /*{
+                                                loader: 'style-loader', // inject CSS to page
+                                            },  */
+                    {
+                        loader: MiniCssExtractPlugin.loader,
                         // options: {
                         //     publicPath: path.resolve(__dirname, 'assets'),
                         // }
-                    }],
-                },
+                    },
+                    {
+                        loader: 'css-loader', // translates CSS into CommonJS modules
+                    },
+                    {
+                        loader: 'postcss-loader', // Run post css actions
+                        options: {
+                            plugins: function () { // post css plugins, can be exported to postcss.config.js
+                                return [
+                                    require('precss'),
+                                    require('autoprefixer')
+                                ];
+                            }
+                        }
+                    }, {
+                        loader: 'sass-loader', // compiles Sass to CSS
+                        options: {
+                            implementation: require('sass'),
+                            sassOptions: {
+                                fiber: false,
+                            },
+                        },
+                    },
+
+                ]
+            },
+            {
+                test: /\.(png|svg|jpg|gif|webp)$/,
+                use: [{
+                    loader: 'file-loader',
+                    options: {
+                        esModule: false, // enables inline 'require(src)' for images in pug templates
+                    }
+                }],
+            },
+            {
+                test: /\.(woff|woff2|eot|ttf|otf)$/,
+                use: [{
+                    loader: 'file-loader',
+                    options: {
+                        name: '[name].[ext]',
+                        outputPath: 'fonts/',
+                        esModule: false,
+                    }
+                }],
+            },
+            {
+                // test: /\.pug$/,
+                // use: [
+                //     // html loader gets webpack to process <img> src
+                //     'html-loader',
+                //     // requires pretty option otherwise some spacing between elements is lost
+                //     'pug-html-loader?{"pretty":true,"exports":false}'
+                //     ],
+                test: /\.pug$/,
+                use: [{
+
+                    loader: '@webdiscus/pug-loader',
+                    // options: {
+                    //     publicPath: path.resolve(__dirname, 'assets'),
+                    // }
+                }],
+            },
                 // {
                 //     test: /\.(md|markdown)$/,
                 //     use: 'markdown-image-loader'

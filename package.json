@@ -33,6 +33,7 @@
     "postcss": "^8.4.13",
     "precss": "^3.1.0",
     "pug": "^3.0.2",
+    "update": "^0.7.4",
     "waypoints": "^4.0.1"
   },
   "devDependencies": {
@@ -44,7 +45,7 @@
     "css-loader": "^3.6.0",
     "enhanced-resolve": "^5.9.3",
     "fibers": "^4.0.3",
-    "file-loader": "^4.3.0",
+    "file-loader": "^6.2.0",
     "glob-all": "^3.2.1",
     "html-webpack-plugin": "^5.5.0",
     "markdown-loader": "^8.0.0",

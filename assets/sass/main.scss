@@ -5,6 +5,36 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Odibee+Sans&family=Open+Sans:ital,wght@0,400;0,600;1,300&display=swap');
 
+// local font families
+@font-face {
+    font-family: "Hyperlegible";
+    src: url("../fonts/Atkinson-Hyperlegible-Regular-102a.woff2") format("woff2");
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: "Hyperlegible";
+    src: url("../fonts/Atkinson-Hyperlegible-Italic-102a.woff2") format("woff2");
+    font-weight: normal;
+    font-style: italic;
+  }
+  
+  @font-face {
+    font-family: "Hyperlegible";
+    src: url("../fonts/Atkinson-Hyperlegible-Bold-102a.woff2") format("woff2");
+    font-weight: bold;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: "Hyperlegible";
+    src: url("../fonts/Atkinson-Hyperlegible-BoldItalic-102a.woff2") format("woff2");
+    font-weight: bold;
+    font-style: italic;
+  }
+
+
 @import "variables";
 @import "custom";
 

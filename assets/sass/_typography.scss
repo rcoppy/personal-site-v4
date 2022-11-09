@@ -20,7 +20,7 @@ body {
     }
 
 
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Hyperlegible', 'Open Sans', sans-serif;
     color: $text_color;
 
     h1, h2, h3 {
@@ -39,10 +39,10 @@ body {
     }
 
     // on smaller screens need bigger font
-    font-size: 0.95rem;
+    font-size: 1.05rem;
 
     @include media-breakpoint-up(md) {
-        font-size: 0.95rem;
+        font-size: 1.05rem;
     }
 
     code {

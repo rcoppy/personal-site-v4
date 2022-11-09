@@ -4,12 +4,14 @@
 
     position: relative; 
     top: -1 * $border_bottom_width;
+    left: -4vw; 
 
     width: 65%;
-    height: $navbar_height;
+    min-height: $navbar_height;
 
     @include media-breakpoint-down(sm) {
         width: 100%;
+        left: 0; 
     }
 
     overflow: hidden;
@@ -53,9 +55,9 @@
     }
 
     span a {
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        display: block;
+        align-self: center;
+        // justify-content: center;
         flex-grow: 1;
 
         @include transition(color 0.15s ease-in-out);

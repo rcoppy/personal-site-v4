@@ -121,8 +121,11 @@ body {
     padding-bottom: 1rem;
 
     @include media-breakpoint-up(md) {
-        width: 50%;
+        width: 53%;
         padding: 1rem 2rem;
+
+        position: relative; 
+        left: -4vw; // slight rule-of-thirds horizontal offset
     }
 
     margin-top: 1rem;

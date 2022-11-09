@@ -1,0 +1,6 @@
+mixin markdown_mixin(path)
+    div !{require(path)}
+
+    // we need to require the markdown through a webpack loader instead 
+    // of a pug filter if we want referenced image files in the markdown
+    // to be included in the bundle

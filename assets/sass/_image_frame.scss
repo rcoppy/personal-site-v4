@@ -4,6 +4,10 @@
     img {
         width: 100%;
 
+        
+    }
+
+    &:not(.centered) {
         &.float-left {
             @include media-breakpoint-up(md) {
                 float: left;
@@ -17,8 +21,17 @@
         }
     }
 
+    &.centered {
+        margin: 0 auto; 
+        display: block; 
+    }
+
     &:not(.circle) {
-        box-shadow: 0 0 $black-coffee;
+        box-shadow: 0 0.2rem 0.6rem $black-coffee;
+
+        &.rounded {
+            border-radius: 0.3rem;
+        }
     }
 
     &.circle {

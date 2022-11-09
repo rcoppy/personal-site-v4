@@ -12,6 +12,8 @@ This is faster than having to hardcode specially-formatted HTML.
 
 *And it will show up here.*
 
+<img class="image_frame medium rounded float-right" src="../../assets/images/default_avatar.jpg" />
+
 ## Awesome!!
 
 (A current limitation of the bundler is that local image paths don't get interpolated when embedded in markdown.)

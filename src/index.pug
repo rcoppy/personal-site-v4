@@ -1,5 +1,6 @@
 extends page_template.pug
 include image_frame_mixin.pug
+include markdown_mixin.pug 
 
 block content 
   section#about
@@ -10,7 +11,7 @@ block content
     
     <br>
 
-    include:markdown-it(linkify, html) ./markdown/example.md
+    +markdown_mixin('./markdown/example.md')
 
     :markdown-it
       this is how you write inline markdown.

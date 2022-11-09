@@ -6,6 +6,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const PurgecssPlugin = require('purgecss-webpack-plugin'); // <-- can potentially strip out unused bootstrap (preliminary setup wasn't successful--broke certain page styling)
 const TerserPlugin = require('terser-webpack-plugin');
 
+const md = require('marked');
 
 module.exports = (env, options) => {
     return {
@@ -109,6 +110,21 @@ module.exports = (env, options) => {
                 }],
             },
             {
+                test: /\.(md|markdown)$/,
+                use: [
+                    {
+                        loader: "html-loader",
+                        options: {
+                            esModule: false,
+                        }
+                    },
+                    {
+                        loader: 'markdown-loader',
+                        options: { renderer: new md.Renderer() }
+                    },
+                ]
+            },
+            {
                 // test: /\.pug$/,
                 // use: [
                 //     // html loader gets webpack to process <img> src
@@ -125,10 +141,6 @@ module.exports = (env, options) => {
                     // }
                 }],
             },
-                // {
-                //     test: /\.(md|markdown)$/,
-                //     use: 'markdown-image-loader'
-                // },
             ],
 
         }
